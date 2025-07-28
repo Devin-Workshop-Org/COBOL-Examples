@@ -25,6 +25,8 @@
            05  F-TIMESTAMP                     PIC X(26).
            05  FILLER                          PIC X(1).
            05  F-USER-ID                       PIC X(8).
+           05  FILLER                          PIC X(1).
+           05  F-SHARES                        PIC 9(17)V9(5).
 
        WORKING-STORAGE SECTION.
        01  WS-FILE-STATUS                      PIC XX.
@@ -39,6 +41,7 @@
            05  WS-CUSIP                        PIC X(9).
            05  WS-TIMESTAMP                    PIC X(26).
            05  WS-USER-ID                      PIC X(8).
+           05  WS-SHARES                       PIC 9(17)V9(5).
 
        PROCEDURE DIVISION.
        MAIN-PROCEDURE.
@@ -79,6 +82,7 @@
            MOVE F-CUSIP TO WS-CUSIP
            MOVE F-TIMESTAMP TO WS-TIMESTAMP
            MOVE F-USER-ID TO WS-USER-ID
+           MOVE F-SHARES TO WS-SHARES
 
            IF WS-FUND-ID = SPACES OR WS-CUSIP = SPACES
                ADD 1 TO WS-ERROR-COUNT
@@ -91,6 +95,7 @@
            DISPLAY "  CUSIP      : " WS-CUSIP
            DISPLAY "  Timestamp  : " WS-TIMESTAMP
            DISPLAY "  User ID    : " WS-USER-ID
+           DISPLAY "  Shares     : " WS-SHARES
            DISPLAY " ".
 
        CLOSE-INPUT-FILE.
