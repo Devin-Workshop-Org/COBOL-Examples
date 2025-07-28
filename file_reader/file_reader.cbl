@@ -96,6 +96,9 @@
            DISPLAY "  Timestamp  : " WS-TIMESTAMP
            DISPLAY "  User ID    : " WS-USER-ID
            DISPLAY "  Shares     : " WS-SHARES
+           
+           CALL 'AAAAAAA' USING WS-FUND-ID
+           
            DISPLAY " ".
 
        CLOSE-INPUT-FILE.
